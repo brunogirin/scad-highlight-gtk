@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="scad" _name="OpenSCAD" version="2.0" _section="Sources">
+    <metadata>
+        <property name="mimetypes">application/x-scad;text/x-scad</property>
+        <property name="globs">*.scad</property>
+    </metadata>
+    <styles>
+        <style id="keyword" _name="Keyword" map-to="def:keyword"/>
+        <style id="builtin" _name="Built-in function" map-to="def:builtin" />
+        <style id="primitive" _name="2D or 3D primitive" map-to="def:builtin" />
+        <style id="transform" _name="2D or 3D transform" map-to="def:builtin" />
+        <style id="csg" _name="CSG modelling" map-to="def:builtin" />
+        <style id="boolean" _name="Boolean" map-to="def:boolean" />
+        <style id="operator" _name="Operator" map-to="def:operator" />
+        <style id="include" _name="Include operator"
+            map-to="def:preprocessor" />
+        <style id="included-file" _name="Included File" map-to="def:string"/>
+    </styles>
+    <definitions>
+        <context id="keyword" style-ref="keyword">
+            <keyword>if</keyword>
+            <keyword>else</keyword>
+            <keyword>for</keyword>
+            <keyword>intersection_for</keyword>
+            <keyword>module</keyword>
+            <keyword>import</keyword>
+        </context>
+        <context id="builtin" style-ref="builtin">
+            <keyword>echo</keyword>
+            <keyword>assign</keyword>
+            <!-- Mathematical functions -->
+            <keyword>abs</keyword>
+            <keyword>acos</keyword>
+            <keyword>asin</keyword>
+            <keyword>atan</keyword>
+            <keyword>atan2</keyword>
+            <keyword>ceil</keyword>
+            <keyword>cos</keyword>
+            <keyword>exp</keyword>
+            <keyword>floor</keyword>
+            <keyword>ln</keyword>
+            <keyword>len</keyword>
+            <keyword>log</keyword>
+            <keyword>lookup</keyword>
+            <keyword>max</keyword>
+            <keyword>min</keyword>
+            <keyword>pow</keyword>
+            <keyword>rands</keyword>
+            <keyword>round</keyword>
+            <keyword>sign</keyword>
+            <keyword>sin</keyword>
+            <keyword>sqrt</keyword>
+            <keyword>tan</keyword>
+            <!-- String functions -->
+            <keyword>str</keyword>
+        </context>
+        <context id="primitive" style-ref="primitive">
+            <keyword>cube</keyword>
+            <keyword>sphere</keyword>
+            <keyword>cylinder</keyword>
+            <keyword>polyhedron</keyword>
+            <keyword>square</keyword>
+            <keyword>circle</keyword>
+            <keyword>polygon</keyword>
+            <keyword>import_dxf</keyword>
+        </context>
+        <context id="transform" style-ref="transform">
+            <keyword>scale</keyword>
+            <keyword>rotate</keyword>
+            <keyword>translate</keyword>
+            <keyword>mirror</keyword>
+            <keyword>multmatrix</keyword>
+            <keyword>color</keyword>
+            <keyword>minkowski</keyword>
+            <keyword>hull</keyword>
+            <keyword>linear_extrude</keyword>
+            <keyword>rotate_extrude</keyword>
+        </context>
+        <context id="csg" style-ref="csg">
+            <keyword>union</keyword>
+            <keyword>difference</keyword>
+            <keyword>intersection</keyword>
+            <keyword>render</keyword>
+        </context>
+        <context id="boolean" style-ref="boolean">
+            <keyword>true</keyword>
+            <keyword>false</keyword>
+        </context>
+        <context id="include" style-ref="include">
+            <match>^(include|use) (&lt;.*&gt;)</match>
+            <include>
+                <context id="included-file" sub-pattern="2"
+                    style-ref="included-file" />
+            </include>
+        </context>
+        <context id="operator" style-ref="operator">
+            <!-- Mathematical operators -->
+            <keyword> *\+ *</keyword>
+            <keyword> *\- *</keyword>
+            <keyword> *\* *</keyword>
+            <keyword> *\/ *</keyword>
+            <keyword> *\% *</keyword>
+            <!-- Comparison operators -->
+            <keyword> *== *</keyword>
+            <keyword> *\!= *</keyword>
+            <keyword> *&lt;= *</keyword>
+            <keyword> *&gt;= *</keyword>
+            <keyword> *&lt; *</keyword>
+            <keyword> *&gt; *</keyword>
+            <!-- Assignment operator -->
+            <keyword> *= *</keyword>
+            <!-- Boolean operators -->
+            <keyword> *&amp;&amp; *</keyword>
+            <keyword> *\|\| *</keyword>
+            <keyword> *\! *</keyword>
+        </context>
+
+        <context id="scad">
+            <include>
+                <context ref="def:c-like-comment" />
+                <context ref="def:c-like-comment-multiline" />
+                <context ref="def:string" />
+                <context ref="keyword" />
+                <context ref="builtin" />
+                <context ref="primitive" />
+                <context ref="transform" />
+                <context ref="csg" />
+                <context ref="boolean" />
+                <context ref="include" />
+                <context ref="def:decimal" />
+                <context ref="def:float" />
+                <context ref="operator" />
+            </include>
+        </context>
+    </definitions>
+</language>
+
