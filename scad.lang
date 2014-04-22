@@ -46,6 +46,7 @@
             <keyword>for</keyword>
             <keyword>intersection_for</keyword>
             <keyword>module</keyword>
+            <keyword>function</keyword>
             <keyword>import</keyword>
         </context>
         <context id="builtin" style-ref="builtin">
