@@ -4,9 +4,24 @@ scad-highlight-gtk
 *Syntax highlighting for OpenSCAD files in GtkSourceView*
 
 Basic syntax highlighting for OpenSCAD files in gedit and any
-GtkSourceView based editor. To install in your home directory:
+GtkSourceView based editor. To install the software, type:
 
     make install
+
+If you have root access, it will install the files globally for all users.
+Otherwise, it will install the files locally for your own user. You can also
+do this to install globally for all users:
+
+    sudo make install
+
+Alternatively, if you want to force a local or global install, you can run
+them explicitly:
+
+    make install_global
+    make install_local
+
+Note that a global install called this way will fail if you do not have root
+access.
 
 License
 =======
